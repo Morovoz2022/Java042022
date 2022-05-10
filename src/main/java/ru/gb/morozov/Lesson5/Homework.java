@@ -18,6 +18,10 @@ public class Homework {
                 new Staff("Алексей", "Программист", "de4543554@list.ru", 832354986, 300, 44),
         };
 
+        for (Staff staff : staffs) {
+            staff.print();
+        }
+
 
         for (Staff staff : staffs) {
             if (staff.getAge() > 40) {
