@@ -1,29 +1,44 @@
 package ru.gb.morozov.Lesson9;
 
 public class Course {
-    protected int springboard_height;
-    protected int snake_lenght;
+    public int  number_of_obstacles;
+    public int lenght;
 
-    public Course(int springboard_height, int snake_lenght) {
-        this.springboard_height = springboard_height;
-        this.snake_lenght = snake_lenght;
+    public Course(int number_of_obstacles, int lenght) {
+        this.number_of_obstacles = number_of_obstacles;
+        this.lenght = lenght;
     }
 
-    public int getSpringboard_height() {
-        return springboard_height;
+    public  Course[]  make_course(int number_of_obstacles, int lenght) {
+        Course[] courses = new Course[number_of_obstacles];
+        for (int i = 0; i < courses.length; i += 1) {
+            courses[i] = new Course(number_of_obstacles, lenght);
+
+
+
+
+
+        }
+        return courses;
+
     }
 
-    public void setSpringboard_height(int springboard_height) {
-        this.springboard_height = springboard_height;
+    public void pass_course(Course[] a, int forces) {
+        for (int i = 0; i < a.length; i +=1) {
+            int b = a[i].lenght;
+            forces = forces - b;
+
+
+
+
+        }
+        if (forces >= 0) {
+            System.out.println("Полоса препятствий пройдена");
+        }
+        else {
+            System.out.println("Полоса препятствий не пройдена");
+        }
+
+
     }
-
-    public int getSnake_lenght() {
-        return snake_lenght;
-    }
-
-    public void setSnake_lenght(int snake_lenght) {
-        this.snake_lenght = snake_lenght;
-    }
-
-
 }
