@@ -4,32 +4,81 @@ public class Homework {
 
 
     public static void main(String[] args) {
-        Team[] teams = {
-                new Team("Spartak", 3454, Sprotsmen.IVAN),
-                new Team("Lokomotive", 464, Sprotsmen.PETER),
-                new Team("Zenit", 2346, Sprotsmen.JOHN),
-                new Team("CSKA", 300, Sprotsmen.TOM)
-
+        Object objects[] = {
+                new Cat(3, 50),
+                new Bot(2, 100),
+                new People(1, 200)
+        };
+        Object obstacles[] = {
+                new Treadmill(100),
+                new Wall(2),
         };
 
-        Course course1 = new Course(2, 400);
+        int a;
+        outer:
+
+        for (int i = 0; i < objects.length; i++) {
+            if ((objects[i] instanceof Cat)) {
+                for (int j = 0; j < obstacles.length; j++) {
+                    if (obstacles[j] instanceof Treadmill) {
+                        int b = ((Treadmill) obstacles[j]).Cat_jump_wall((Cat) objects[i]);
+                        if (b == 0) {
+                            continue outer;
+                        }
 
 
+                    } else if (obstacles[j] instanceof Wall) {
+                        int b = ((Wall) obstacles[j]).Cat_jump_wall((Cat) objects[i]);
+                        if (b == 0) {
+                            continue outer;
+                        }
+                    }
 
-        for (int i = 0; i < teams.length; i++) {
-            teams[i].check(teams[i]);
-            teams[i].info(teams[i]);
-
-            course1.pass_course(course1.make_course(course1.number_of_obstacles, course1.lenght), teams[i].getDistance());
+                }
 
 
+            }
+            if ((objects[i] instanceof People)) {
+                for (int j = 0; j < obstacles.length; j++) {
+                    if (obstacles[j] instanceof Treadmill) {
+                        int b = ((Treadmill) obstacles[j]).people_jump_wall((People) objects[i]);
+                        if (b == 0) {
+                            continue outer;
+                        }
+
+
+                    } else if (obstacles[j] instanceof Wall) {
+                        int b = ((Wall) obstacles[j]).people_jump_wall((People) objects[i]);
+                        if (b == 0) {
+                            continue outer;
+                        }
+                    }
+
+                }
+            }
+            if ((objects[i] instanceof Bot)) {
+                for (int j = 0; j < obstacles.length; j++) {
+                    if (obstacles[j] instanceof Treadmill) {
+                        int b = ((Treadmill) obstacles[j]).bot_jump_wall((Bot) objects[i]);
+                        if (b == 0) {
+                            continue outer;
+                        }
+
+
+                    } else if (obstacles[j] instanceof Wall) {
+                        int b = ((Wall) obstacles[j]).bot_jump_wall((Bot) objects[i]);
+                        if (b == 0) {
+                            continue outer;
+                        }
+                    }
+
+                }
+
+
+            }
 
 
         }
-
-
-
-
-
     }
 }
+
